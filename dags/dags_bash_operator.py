@@ -16,8 +16,7 @@ with DAG(
     )
     bash_t2 = BashOperator(
         task_id="bash_t2",
-        bas
-        h_command="echo $HOSTNAME",
+        bash_command="echo $HOSTNAME",
     )
 
     bash_t1 >> bash_t2
