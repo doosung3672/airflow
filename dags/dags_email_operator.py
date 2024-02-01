@@ -10,9 +10,10 @@ with DAG(
     catchup=False,
 ) as dag:
     send_email_task = BashOperator(
-      task_id='send_email_task'",
+      task_id='send_email_task',
       to = 'doosungkang@naver.com',
       cc = 'doosungkang@hanmail.net',
       subject ='airflow 성공메일',
-      html_content = 'airflow 작업이 완료되었습니다.'
+      html_content = 'airflow 작업이 완료되었습니다.',
     )
+    send_email_task
