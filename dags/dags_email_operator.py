@@ -15,4 +15,4 @@ with DAG(
       cc = 'doosungkang@hanmail.net',
       subject ='airflow 성공메일',
       html_content = 'airflow 작업이 완료되었습니다.'
-    )    
+    )
