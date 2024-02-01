@@ -9,10 +9,6 @@ with DAG(
     start_date=pendulum.datetime(2024, 1, 29, tz="Asia/Seoul"),
     catchup=False,
 ) as dag:
-    send_email_task = EmailOperator{
-        task_id = 'send_email_task'
-        to = 
-    }
     send_email_task = BashOperator(
       task_id='send_email_task'",
       to = 'doosungkang@naver.com',
