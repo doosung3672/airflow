@@ -6,7 +6,7 @@ from common.common_func  import regist
 
 with DAG(
     dag_id="dags_bash_select_fruit",
-    schedule="10 0 * * 6#1",
+    schedule="0 8 1 * *",
     start_date=pendulum.datetime(2024, 1, 31, tz="Asia/Seoul"),
     catchup=False,
 ) as dag:
@@ -16,6 +16,6 @@ with DAG(
        python_callable=regist,
        op_args=['doosung','man','kr','incheon']
     )
-    
+
 
     regist_t1
