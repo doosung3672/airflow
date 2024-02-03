@@ -5,7 +5,7 @@ from airflow.operators.python  import PythonOperator
 from common.common_func  import regist
 
 with DAG(
-    dag_id="dags_bash_select_fruit",
+    dag_id="dags_python_with_op_args",
     schedule="0 8 1 * *",
     start_date=pendulum.datetime(2024, 1, 31, tz="Asia/Seoul"),
     catchup=False,
