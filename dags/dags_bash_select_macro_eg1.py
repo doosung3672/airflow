@@ -13,7 +13,7 @@ with DAG(
     bash_task1 = BashOperator(
         task_id = 'bash_task1',
         env={'START_DATE':'{{data_interval_start.intimezone("Asia/Seoul") | ds }}',
-             'END_DATE':'{{(data_interval_end.intimezone("Asia/Seoul") - macros.deteutil.relativedelta.relativedelta(days=1)) | ds }}'
+             'END_DATE':'{{(data_interval_end.intimezone("Asia/Seoul") - macros.dateutil.relativedelta.relativedelta(days=1)) | ds }}'
         },
         bash_command='echo "START_DATE: $START_DATE && echo "END_DATE: $END_DATE"'
     )
