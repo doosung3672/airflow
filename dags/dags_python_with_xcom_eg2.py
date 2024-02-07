@@ -11,12 +11,12 @@ with DAG(
 ) as dag:
     @task(task_id ='dags_python_with_push_by_return')
     def xcom_push_result(**kwargs):
-        retrun 'Success'
+        return 'Success'
 
     @task(task_id ='dags_python_with_pull_1')
     def xcom_pull_1(**kwargs):
         ti = kwargs['ti']
-        value1 = ti.xcom_pull(task_ids"dags_python_with_push_by_return")
+        value1 = ti.xcom_pull(task_ids='dags_python_with_push_by_return')
         print('xcom_pul 메소드로 직접 찾은 리턴 값'+value1)
 
     @task(task_id ='dags_python_with_pull_2')
