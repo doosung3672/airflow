@@ -1,4 +1,4 @@
-from airflow.models.dag import DAG
+from airflow import DAG
 import datetime
 import pendulum
 from airflow.operators.bash import BashOperator
