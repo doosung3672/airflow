@@ -17,10 +17,4 @@ with DAG(
         bash_command=f"echo variable:{var_value}"
     )
 
-    bash_var_2 = BashOperator(
-        task_id ='bash_var_2',
-        bash_command="echo variable:{{var.value.sample_key}}"
-    )
-
-    bash_var_1 >> bash_var_2
 
