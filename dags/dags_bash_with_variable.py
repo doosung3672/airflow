@@ -14,7 +14,8 @@ with DAG(
 
     bash_var_1 = BashOperator(
         task_id = 'bash_var_1',
-        bash_command = "echo variable:{var_value}"
+        # bash_command = "echo variable:{var_value}"
+        bash_command="echo $HOSTNAME",
     )
 
 
