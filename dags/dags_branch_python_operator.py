@@ -48,5 +48,5 @@ with DAG(
         op_kwargs={'selected':'C'}
     )
 
-    python_branch_task >> ['task_a','task_b','task_c']
+    python_branch_task >> [task_a,task_b,task_c]
 
