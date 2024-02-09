@@ -22,3 +22,5 @@ with DAG(
         bash_command="echo variable:{{var.value.sample_key}}"
     )
 
+    bash_var_1 >> bash_var_2
+
