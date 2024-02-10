@@ -9,7 +9,7 @@ from airflow.utils.task_group import TaskGroup
 
 
 with DAG(
-    dag_id="dags_python_with_trigger_rule_eg2",
+    dag_id="dags_python_with_task_group",
     schedule="0 0 * * *",
     start_date=pendulum.datetime(2024, 2, 9, tz="Asia/Seoul"),
     catchup=False,
