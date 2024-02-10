@@ -15,12 +15,13 @@ with DAG(
     catchup=False,
 ) as dag:
     def inner_func(**kwargs):
-        msg = kwargs('msg')  or ''
+        msg = kwargs.get('msg')  or ''
         print(msg)
     
     @task_group(group_id ='first_group')
     def group_1():
         ''' task_group 데커레이터를 이용한 첫 그룹입니다. '''
+        
         @task(task_id ='inner_function1')
         def inner_function1():
             print('첫 번째 TaskGroup 내 첫 번째 task입니다')
@@ -35,4 +36,4 @@ with DAG(
 
  
        # group_1() >> group_2
-        #group_1()
+    group_1()
