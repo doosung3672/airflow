@@ -28,6 +28,4 @@ with DAG(
 
 
 
-        group_2
-
 
