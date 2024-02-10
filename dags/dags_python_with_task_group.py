@@ -30,6 +30,7 @@ with DAG(
                 op_kwargs={'msg':'두번째 TaskGroup내 두번째 task입니다.'}
          )        
          inner_func1() >> inner_function2
+    group_2
 
 
 
