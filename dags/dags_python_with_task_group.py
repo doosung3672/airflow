@@ -28,6 +28,6 @@ with DAG(
 
 
 
-            group_2
+        group_2
 
 
