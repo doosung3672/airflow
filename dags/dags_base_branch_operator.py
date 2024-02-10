@@ -14,7 +14,7 @@ with DAG(
     catchup=False,
 ) as dag:
     class CustomBranchOperator(BaseBranchOperator):
-        def choose_branch(self, context: Context):
+        def choose_branch(self, context):
             import random
             print(Context)
             item_lst = ['A','B','C']
