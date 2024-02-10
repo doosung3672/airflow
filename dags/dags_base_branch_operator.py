@@ -1,4 +1,4 @@
-from airflow.models.dag import DAG
+from airflow import DAG
 import datetime
 from airflow.utils.context import Context
 import pendulum
