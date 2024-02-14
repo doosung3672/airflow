@@ -2,8 +2,6 @@ from airflow import DAG
 import datetime
 import pendulum
 from airflow.operators.bash import BashOperator
-from airflow.providers.http.operators.http import SimpleHttpOperator
-from airflow.decorators import task
 from airflow.hooks.base import BaseHook
 import pandas as pd
 
@@ -18,7 +16,7 @@ class SeoulApiToCsvOperator(BashOperator):
         self.endpoint ='{{var.value.apikey_openapi_seoul_go_kr}}/json/'+dataset_nm
         self.dase_dt = base_dt
 
-    def execute(self,context):
+    def execute(self, context):
         import os
         connection = BaseHook.get_connection(self.http_conn_id)
         self.base_url =f'http//{connection.host}:{connection.port}/{self.endpoint}'
@@ -39,7 +37,7 @@ class SeoulApiToCsvOperator(BashOperator):
             
             if not os.path.exists(self.path):
                 os.system(f'mkdir -p {self.path}')
-            total_row_df.to_csv(self.path+'/'+self.file_name,encoding='utf-8',indeex=False)
+            total_row_df.to_csv(self.path+'/'+self.file_name,encoding='utf-8',index=False)
 
     def _call_api(self,base_url,start_row,end_row):
         import requests
