@@ -5,19 +5,19 @@ from airflow.operators.bash import BashOperator
 from airflow.providers.http.operators.http import SimpleHttpOperator
 from airflow.decorators import task
 from airflow.hooks.base import BaseHook
-import os
 import pandas as pd
 
 class SeoulApiToCsvOperator(BashOperator):
     template_fields = ('endpoint','path','file_name','base_dt')
 
-    def __init__(self,dataset_nm,path,file_name,base_dt=None,**kwargs):
+    def __init__(self, dataset_nm, path, file_name, base_dt=None, **kwargs):
         super().__init__(**kwargs)
         self.http_conn_id ='seoulopendata'
         self.path = path
         self.file_name = file_name
         self.endpoint ='{{var.value.apikey_openapi_seoul_go_kr}}/json/'+dataset_nm
         self.dase_dt = base_dt
+
     def execute(self,context):
         import os
         connection = BaseHook.get_connection(self.http_conn_id)
