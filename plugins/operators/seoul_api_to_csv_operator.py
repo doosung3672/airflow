@@ -16,7 +16,7 @@ class SeoulApiToCsvOperator(BashOperator):
         self.endpoint ='{{var.value.apikey_openapi_seoul_go_kr}}/json/'+dataset_nm
         self.dase_dt = base_dt
 
-    def execute(self, context):
+    def execute(self,context):
         import os
         connection = BaseHook.get_connection(self.http_conn_id)
         self.base_url =f'http//{connection.host}:{connection.port}/{self.endpoint}'
@@ -36,10 +36,8 @@ class SeoulApiToCsvOperator(BashOperator):
                 end_row += 1000
             
             if not os.path.exists(self.path):
-                #os.system(f'mkdir -p {self.path}')
-                os.makedirs(self.path)
-            #total_row_df.to_csv(self.path+'/'+self.file_name,encoding='utf-8',index=False)
-            total_row_df.to_csv(os.path.join(self.path, self.file_name), encoding='utf-8', index=False)
+                os.system(f'mkdir -p {self.path}')
+            total_row_df.to_csv(self.path+'/'+self.file_name,encoding='utf-8',indeex=False)
 
     def _call_api(self,base_url,start_row,end_row):
         import requests
