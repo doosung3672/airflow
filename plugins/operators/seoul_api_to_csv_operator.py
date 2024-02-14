@@ -5,6 +5,7 @@ from airflow.operators.bash import BashOperator
 from airflow.providers.http.operators.http import SimpleHttpOperator
 from airflow.decorators import task
 from airflow.hooks.base import BaseHook
+import os
 import pandas as pd
 
 class SeoulApiToCsvOperator(BashOperator):
